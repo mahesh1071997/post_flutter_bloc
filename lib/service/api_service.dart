@@ -35,7 +35,7 @@ class ApiService {
       final response = await http.get(Uri.parse("$baseUrl/$postId"));
       if (response.statusCode == 200) {
         await prefs.saveString("post$postId", response.body);
-        print("object ${prefs.getString("post$postId")!}");
+        // print("object ${prefs.getString("post$postId")!}");
         return response.body;
       } else {
         throw Exception('Failed to fetch posts');

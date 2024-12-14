@@ -2,6 +2,11 @@
 
 This Flutter application demonstrates the usage of the Bloc state management. The app retrieves a list of posts from an API.
 
+here i have use this main pakages
+
+flutter_bloc: ^8.1.6
+http: ^1.2.2
+shared_preferences: ^2.3.3
 ---
 
 ## File Structure
@@ -19,6 +24,10 @@ lib/
 |-- screens/
 |   |-- post_list_screen.dart    # UI for displaying the list of posts
 |   |-- post_detail_screen.dart    # UI for displaying the list of posts
+|
+|-- service/
+|   |-- local_service.dart    # save data local 
+|   |-- api_service.dart      # get data from serve
 |
 |-- main.dart                    # Application entry point
 ```
