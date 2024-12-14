@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:demo/service/api_service.dart';
-import 'package:http/http.dart' as http;
 import '../models/post_model.dart';
 import 'post_event.dart';
 import 'post_state.dart';
