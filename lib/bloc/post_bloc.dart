@@ -15,7 +15,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   Future<void> _onFetchPosts(FetchPosts event, Emitter<PostState> emit) async {
     emit(PostLoading());
     try {
-      final response = await ApiService.fetchPosts();
+      final response = await ApiService().fetchPosts();
     
         final List<dynamic> data = json.decode(response);
         final posts = data.map((e) => Post.fromJson(e)).toList();

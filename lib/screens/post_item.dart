@@ -11,7 +11,8 @@ class PostItem extends StatefulWidget {
   final bool isRead;
   final int timerDuration;
 
-  PostItem({required this.post, required this.isRead, required this.timerDuration});
+  PostItem(
+      {required this.post, required this.isRead, required this.timerDuration});
 
   @override
   _PostItemState createState() => _PostItemState();
@@ -47,30 +48,31 @@ class _PostItemState extends State<PostItem> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _timer?.cancel();
-        BlocProvider.of<PostBloc>(context).add(MarkAsRead(widget.post.id));
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => PostDetailScreen(postId: widget.post.id)),
-        ).then((_) => _startTimer());
-      },
-      child: Container(
-        color: widget.isRead ? Colors.white : Colors.yellow[100],
-        padding: EdgeInsets.all(16.0),
-        child: ListTile(
-          title:Text(widget.post.title, style: TextStyle(fontWeight: FontWeight.bold)) ,
-          subtitle:Text(widget.post.body, maxLines: 3, overflow: TextOverflow.ellipsis) ,
-          trailing:  Column(
-              children: [
-                const Icon(Icons.timer),
-                Text('$remainingTime s', style: TextStyle(color: Colors.red)),
-              ],
-            ),
-          
+    return Container(
+      color: widget.isRead ? Colors.white : Colors.yellow[100],
+      padding: EdgeInsets.all(16.0),
+      child: ListTile(
+        onTap: () {
+          _timer?.cancel();
+          BlocProvider.of<PostBloc>(context).add(MarkAsRead(widget.post.id));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    PostDetailScreen(postId: widget.post.id)),
+          ).then((_) => _startTimer());
+        },
+        title: Text(widget.post.title,
+            style: TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(widget.post.body,
+            maxLines: 3, overflow: TextOverflow.ellipsis),
+        trailing: Column(
+          children: [
+            const Icon(Icons.timer),
+            Text('$remainingTime s', style: TextStyle(color: Colors.red)),
+          ],
         ),
-            ),
+      ),
     );
   }
 }
