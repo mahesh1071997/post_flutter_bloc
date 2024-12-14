@@ -3,10 +3,10 @@
 This Flutter application demonstrates the usage of the Bloc state management. The app retrieves a list of posts from an API.
 
 here i have use this main pakages
-
 flutter_bloc: ^8.1.6
 http: ^1.2.2
 shared_preferences: ^2.3.3
+
 ---
 
 ## File Structure
