@@ -59,28 +59,18 @@ class _PostItemState extends State<PostItem> {
       child: Container(
         color: widget.isRead ? Colors.white : Colors.yellow[100],
         padding: EdgeInsets.all(16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(widget.post.title, style: TextStyle(fontWeight: FontWeight.bold)),
-                  SizedBox(height: 8.0),
-                  Text(widget.post.body, maxLines: 2, overflow: TextOverflow.ellipsis),
-                ],
-              ),
-            ),
-            Column(
+        child: ListTile(
+          title:Text(widget.post.title, style: TextStyle(fontWeight: FontWeight.bold)) ,
+          subtitle:Text(widget.post.body, maxLines: 3, overflow: TextOverflow.ellipsis) ,
+          trailing:  Column(
               children: [
                 const Icon(Icons.timer),
                 Text('$remainingTime s', style: TextStyle(color: Colors.red)),
               ],
             ),
-          ],
+          
         ),
-      ),
+            ),
     );
   }
 }
